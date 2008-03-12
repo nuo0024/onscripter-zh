@@ -1,0 +1,25 @@
+# -*- Makefile -*-
+#
+# Makefile.mingw32 - Makefile rules for MinGW
+#
+
+INCS = -I./dep/mingw32/include -I./dep/mingw32/include/SDL -I/usr/local/include -I/usr/local/include/SDL
+LIBS = -L./dep/mingw32/lib -L/usr/local/lib -lSDL_ttf -lmingw32 -lSDL_image -lSDL_mixer -lsmpeg -lSDL -lbz2 -ljpeg -lm -lfreetype -lvorbisfile -lvorbis -logg -lkernel32 -lgdi32 -luser32 -lwinmm -luuid -ldxguid -lSDLmain -lSDL
+DEFS = -DWIN32 -D_WIN32 -DUSE_OGG_VORBIS -DENABLE_1BYTE_CHAR
+
+EXESUFFIX = .exe
+OBJSUFFIX = .o
+
+.SUFFIXES:
+.SUFFIXES: $(OBJSUFFIX) .cpp .h
+
+CC = g++
+LD = g++ -mwindows -o 
+CP = cp
+RM = rm -f
+
+CFLAGS = -O3 -Wall -fomit-frame-pointer -pipe -c $(INCS) $(DEFS)
+
+TARGET = onscripter$(EXESUFFIX) sardec$(EXESUFFIX) nsadec$(EXESUFFIX) sarconv$(EXESUFFIX) nsaconv$(EXESUFFIX)
+
+include Makefile.onscripter

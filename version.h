@@ -1,0 +1,2 @@
+#define ONS_VERSION "20080121-zh02"
+#define NSC_VERSION 282

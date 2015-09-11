@@ -1,0 +1,1 @@
+Modified ONScripter visual novel scripting engine to support Chinese GBK and Big5 encoding characters.
